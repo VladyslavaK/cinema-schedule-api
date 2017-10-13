@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/VladyslavaK/cinema-schedule-api#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-module-method": "^6.24.1",

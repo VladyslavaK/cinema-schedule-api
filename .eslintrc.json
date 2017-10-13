@@ -1,3 +1,9 @@
 {
-    "extends": "airbnb-base"
+    "extends": "airbnb-base",
+    "rules": {
+        "no-undef": "warn",
+        "no-unused-vars": "warn",
+        "global-require": "warn"
+
+    }
 }

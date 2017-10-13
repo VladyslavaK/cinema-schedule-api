@@ -1,9 +1,4 @@
-const express = require('express');
-
-const app = express();
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+const app = require('./src/api');
 
 app.listen(3000, () => {
   console.info('Server is listen on 3000 port');
