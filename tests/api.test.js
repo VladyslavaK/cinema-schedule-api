@@ -1,51 +1,46 @@
 const { should } = require('chai');
 const { stub } = require('sinon');
-const request = require('request-promise');
+const request = require('supertest');
+const app = require('../src/api');
 
 const db = null;
-const url = '';
 
 describe('Base API', () => {
+  let server;
+
+  before(() => {
+    server = app.listen(3000);
+  });
+
+  after((done) => {
+    server.close(done);
+  });
+
   describe('GET', () => {
     it('should return halls configuration', async () => {
-      const expectedHalls = null;
+      const expectedHalls = await db.getHalls();
 
-      const options = {
-        method: 'GET',
-        uri: url,
-        json: true,
-      };
-
-      const halls = await request(options);
+      const halls = await request(server).get('/halls')
+        .expect(200);
 
       halls.should.be.deep.equal(expectedHalls);
     });
 
     it('should return today schedule', async () => {
-      const expectedSchedule = null;
+      const expectedSchedule = await db.getSchedule();
 
-      const options = {
-        method: 'GET',
-        uri: url,
-        json: true,
-      };
-
-      const schedule = await request(options);
+      const schedule = await request(server).get('/schedule')
+        .expect(200);
 
       schedule.should.be.deep.equal(expectedSchedule);
     });
 
 
     it('should return all available today films', async () => {
-      const expectedFilms = null;
+      const expectedFilms = await db.getFilms();
 
-      const options = {
-        method: 'GET',
-        uri: url,
-        json: true,
-      };
-
-      const films = await request(options);
+      const films = await request(server).get('/films')
+        .expect(200);
 
       films.should.be.deep.equal(expectedFilms);
     });
@@ -55,14 +50,8 @@ describe('Base API', () => {
     it('should add a new hall', async () => {
       const hall = null;
 
-      const options = {
-        method: 'POST',
-        uri: url,
-        body: hall,
-        json: true,
-      };
-
-      await request(options);
+      await request(server).post('/halls')
+        .send(hall);
 
       const savedHall = await db.getHall();
 
@@ -72,14 +61,8 @@ describe('Base API', () => {
     it('should add schedule for tomorrow', async () => {
       const schedule = null;
 
-      const options = {
-        method: 'POST',
-        uri: url,
-        body: schedule,
-        json: true,
-      };
-
-      await request(options);
+      await request(server).post('/schedule')
+        .send(schedule);
 
       const savedSchedule = await db.getSchedule();
 
@@ -90,14 +73,8 @@ describe('Base API', () => {
     it('should add a new film', async () => {
       const film = null;
 
-      const options = {
-        method: 'POST',
-        uri: url,
-        body: film,
-        json: true,
-      };
-
-      await request(options);
+      await request(server).post('/film')
+        .send(film);
 
       const savedFilm = await db.getFilm();
 
@@ -107,14 +84,8 @@ describe('Base API', () => {
     it('should place an order with bought tickets', async () => {
       const order = null;
 
-      const options = {
-        method: 'POST',
-        uri: url,
-        body: order,
-        json: true,
-      };
-
-      await request(options);
+      await request(server).post('/order')
+        .send(order);
 
       const savedOrder = await db.getOrder();
 

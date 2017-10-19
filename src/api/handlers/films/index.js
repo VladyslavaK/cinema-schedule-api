@@ -1,5 +1,8 @@
 
-module.exports = ({ router }) => {
+module.exports = ({ router, models }) => {
   router.route('/films')
-    .get((req, res) => res.send('ALL THESE FILMS'));
+    .get(async (req, res) => {
+      const films = await models.films.find();
+      res.send(films);
+    });
 };

@@ -4,5 +4,5 @@ const handlers = [
   'schedule',
 ];
 
-module.exports = ({ router }) => handlers
-  .forEach(handler => require(`./${handler}`)({ router })); //eslint-disable-line
+module.exports = ({ router, models }) => handlers
+  .forEach(handler => require(`./${handler}`)({ router, models })); //eslint-disable-line
