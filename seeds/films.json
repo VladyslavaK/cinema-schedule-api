@@ -1,0 +1,28 @@
+[{
+  "title": "Dune",
+  "director": "David Linch",
+  "description": "Futuristic roman",
+  "duration": 2,
+  "expirationDate": "01.01.2019"
+}, 
+{
+  "title": "IT",
+  "director": "Steven King",
+  "description": "Horror",
+  "duration": 2,
+  "expirationDate": "01.01.2018"
+}, 
+{
+  "title": "Blade Runner",
+  "director": "David Linch",
+  "description": "Futuristic roman",
+  "duration": 2,
+  "expirationDate": "01.05.2019"
+}, {
+  "title": "Ghost in the shell",
+  "director": "David Linch",
+  "description": "Futuristic roman",
+  "duration": 2,
+  "expirationDate": "01.12.2019"
+}
+]

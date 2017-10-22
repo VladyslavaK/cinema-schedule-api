@@ -1,0 +1,12 @@
+[{ "name": "yellow",
+  "code": 1,
+  "capasity": 56
+},
+{ "name": "red",
+  "code": 2,
+  "capasity": 12
+},
+{ "name": "green",
+  "code": 3,
+  "capasity": 84
+}]
