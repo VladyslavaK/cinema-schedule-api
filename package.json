@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "test": "mocha --require babel-register tests/**/*.js",
-    "lint": "eslint --fix ."
+    "lint": "eslint --fix .",
+    "dev": "nodemon -L --watch app.js --watch src --inspect --exec babel-node app"
   },
   "repository": {
     "type": "git",
@@ -24,12 +25,14 @@
     "mongoose": "^4.12.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-plugin-transform-async-to-module-method": "^6.24.1",
     "babel-preset-node6": "^11.0.0",
     "babel-register": "^6.26.0",
     "chai": "^4.1.2",
     "eslint": "^4.8.0",
     "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
     "sinon": "^4.0.1",
     "supertest": "^3.0.0"
   }

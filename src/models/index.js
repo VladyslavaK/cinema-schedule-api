@@ -1,10 +1,9 @@
 
 const mongoose = require('mongoose');
 
-const models = [
-  'films',
-  'halls',
-];
+const models = {
+  Films: require('./films'),
+  Halls: require('./halls'),
+};
 
-module.exports = models
-  .map(model => require(`./${model}`));  //eslint-disable-line
+module.exports = models;
